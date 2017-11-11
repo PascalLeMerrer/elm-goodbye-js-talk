@@ -23,7 +23,9 @@ initialModel =
 
 update : Msg -> Model -> Model
 update msg model =
-    model
+    case msg of
+        Select name ->
+            { model | selectedCharacter = name }
 
 
 view : Model -> Html Msg

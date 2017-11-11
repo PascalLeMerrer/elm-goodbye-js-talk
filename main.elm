@@ -3,12 +3,17 @@ module Main exposing (main)
 import Html exposing (..)
 
 
+initialModel =
+    [ "Luke", "Leia", "Han" ]
+
+
 view =
     ul []
-        [ li [] [ text "Luke" ]
-        , li [] [ text "Leia" ]
-        , li [] [ text "Han" ]
-        ]
+        (List.map viewItem initialModel)
+
+
+viewItem name =
+    li [] [ text name ]
 
 
 main : Html msg

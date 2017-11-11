@@ -9,6 +9,10 @@ type alias Model =
     }
 
 
+type Msg
+    = Select String
+
+
 initialModel : Model
 initialModel =
     { characters = [ "Luke", "Leia", "Han" ]
@@ -16,17 +20,25 @@ initialModel =
     }
 
 
-view : Model -> Html msg
+update : Msg -> Model -> Model
+update msg model =
+    model
+
+
+view : Model -> Html Msg
 view model =
     ul [] <|
         List.map viewItem model.characters
 
 
-viewItem : String -> Html msg
+viewItem : String -> Html Msg
 viewItem name =
     li [] [ text name ]
 
 
-main : Html msg
 main =
-    view initialModel
+    Html.beginnerProgram
+        { model = initialModel
+        , view = view
+        , update = update
+        }

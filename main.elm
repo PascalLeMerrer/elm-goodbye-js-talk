@@ -3,15 +3,23 @@ module Main exposing (main)
 import Html exposing (..)
 
 
-initialModel : List String
+type alias Model =
+    { characters : List String
+    , selectedCharacter : String
+    }
+
+
+initialModel : Model
 initialModel =
-    [ "Luke", "Leia", "Han" ]
+    { characters = [ "Luke", "Leia", "Han" ]
+    , selectedCharacter = ""
+    }
 
 
-view : List String -> Html msg
+view : Model -> Html msg
 view model =
     ul [] <|
-        List.map viewItem model
+        List.map viewItem model.characters
 
 
 viewItem : String -> Html msg

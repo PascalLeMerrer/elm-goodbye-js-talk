@@ -34,12 +34,19 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ ul [] <|
-            List.map viewItem model.characters
-        , p [] [ text model.selectedCharacter ]
-        , button [ onClick Unselect ] [ text "unselect character" ]
-        ]
+    let
+        unselectButton =
+            if model.selectedCharacter == "" then
+                p [] [ text "Select a character" ]
+            else
+                button [ onClick Unselect ] [ text "unselect character" ]
+    in
+        div []
+            [ ul [] <|
+                List.map viewItem model.characters
+            , p [] [ text model.selectedCharacter ]
+            , unselectButton
+            ]
 
 
 viewItem : String -> Html Msg

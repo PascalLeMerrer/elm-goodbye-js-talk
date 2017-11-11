@@ -1,6 +1,7 @@
 module Main exposing (main)
 
 import Html exposing (..)
+import Html.Events exposing (onClick)
 
 
 type alias Model =
@@ -33,7 +34,7 @@ view model =
 
 viewItem : String -> Html Msg
 viewItem name =
-    li [] [ text name ]
+    li [ onClick <| Select name ] [ text name ]
 
 
 main =

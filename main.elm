@@ -1,10 +1,14 @@
 module Main exposing (main)
 
-import Html exposing (Html, text)
+import Html exposing (..)
 
 
 view =
-    text "Hello, World!"
+    ul []
+        [ li [] [ text "Luke" ]
+        , li [] [ text "Leia" ]
+        , li [] [ text "Han" ]
+        ]
 
 
 main : Html msg

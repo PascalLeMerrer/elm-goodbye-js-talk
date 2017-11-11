@@ -7,9 +7,9 @@ initialModel =
     [ "Luke", "Leia", "Han" ]
 
 
-view =
+view model =
     ul [] <|
-        List.map viewItem initialModel
+        List.map viewItem model
 
 
 viewItem name =
@@ -18,4 +18,4 @@ viewItem name =
 
 main : Html msg
 main =
-    view
+    view initialModel

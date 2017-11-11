@@ -8,8 +8,8 @@ initialModel =
 
 
 view =
-    ul []
-        (List.map viewItem initialModel)
+    ul [] <|
+        List.map viewItem initialModel
 
 
 viewItem name =

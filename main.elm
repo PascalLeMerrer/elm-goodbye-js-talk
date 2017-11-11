@@ -30,8 +30,11 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    ul [] <|
-        List.map viewItem model.characters
+    div []
+        [ ul [] <|
+            List.map viewItem model.characters
+        , p [] [ text model.selectedCharacter ]
+        ]
 
 
 viewItem : String -> Html Msg

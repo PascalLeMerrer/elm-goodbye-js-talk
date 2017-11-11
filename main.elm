@@ -12,6 +12,7 @@ type alias Model =
 
 type Msg
     = Select String
+    | Unselect
 
 
 initialModel : Model
@@ -27,6 +28,9 @@ update msg model =
         Select name ->
             { model | selectedCharacter = name }
 
+        Unselect ->
+            { model | selectedCharacter = "" }
+
 
 view : Model -> Html Msg
 view model =
@@ -34,6 +38,7 @@ view model =
         [ ul [] <|
             List.map viewItem model.characters
         , p [] [ text model.selectedCharacter ]
+        , button [ onClick Unselect ] [ text "unselect character" ]
         ]
 
 
